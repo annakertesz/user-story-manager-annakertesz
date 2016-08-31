@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user story</title>
+</head>
+<body>
+<h1>USER STORY MANAGER - Add new user story</h1>
+<form action="/save" method="post">
+    Story title:<br> <input type="text" name="title"> <br>
+    User story:<br> <input type="text" name="story" ><br>
+    Acceptance criteria: <br> <input type="text" name="criteria"><br>
+    Buisness value: <br> <input type="number" name="value" step="100" min="100" max="1500"><br>
+    Estimation time (h): <br> <input type="number" name="time" step="0.5" min="0.5" max="40"><br>
+    <select name="status">
+        <option value="planning">Planning</option>
+        <option value="todo">To do</option>
+        <option value="inprogress">In progress</option>
+        <option value="review">Review</option>
+        <option value="done">Done</option>
+    </select>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

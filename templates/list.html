@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User stories</title>
+</head>
+<body>
+<caption><h2>User Story Manager - List of User Stories</h2></caption>
+
+<table>
+
+      <thead>
+        <th>Story title</th>
+        <th>User story</th>
+        <th>Acceptance criteria</th>
+        <th>Buisness value</th>
+        <th>Estimation time</th>
+        <th>Status</th>
+        <th></th>
+      </thead>
+
+      <tbody>
+        {% for line in query %}
+                <tr>
+                    <td>{{line['title']}}</td>
+                    <td>{{line['story']}}</td>
+                    <td>{{line['criteria']}}</td>
+                    <td>{{line['value']}}</td>
+                    <td>{{line['time']}}</td>
+                    <td>{{line['status']}}</td>
+                    <td><</td>
+                </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
