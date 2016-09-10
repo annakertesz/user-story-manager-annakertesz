@@ -28,8 +28,14 @@
                     <td>{{line['value']}}</td>
                     <td>{{line['time']}}</td>
                     <td>{{line['status']}}</td>
-                    <td><</td>
+                    <td>
+                        <form action="/edit" method="post">
+                        <input type="hidden" name="default" value={{ line['id'] }}/>
+                        <input type="submit" value="edit">
+                        </FORM>
+                    </td>
                 </tr>
+
         {% endfor %}
     </tbody>
     </table>

@@ -16,7 +16,7 @@ def get_db():
 
 @app.route('/story')
 def apply():
-    return render_template('form.html')
+    return render_template('form.html', query = ())
 
 @app.route('/save', methods=['POST'])
 def post():
@@ -27,7 +27,13 @@ def post():
     new_post['value'] = request.form['value']
     new_post['time'] = request.form['time']
     new_post['status'] = request.form['status']
+    print (request.form['id'])
+    # if request.form['id'] != None:
+    #     id_to_delete = request.form['id']
+    #     UserStory.delete_user_story(int(id_to_delete[0]))
+
     UserStory.add_user_story(new_post)
+
     return redirect('/list')
 
 @app.route('/')
@@ -38,6 +44,17 @@ def index():
 def send():
     query_to_print = UserStory.list_all()
     return render_template('list.html', query=query_to_print)
+
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    to_edit = request.form['default']
+    id = int(to_edit[0])
+    query_to_edit = UserStory.list_to_edit(id)
+    return render_template('form.html', query = query_to_edit)
+
+
+
 
 # db.create_tables([UserStory])
 app.run()
